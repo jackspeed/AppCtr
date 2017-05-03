@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">YCJ</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="ok">确定</string>
+    <string name="test_network">1.请检查您的网络是否正常</string>
+    <string name="exit_and_restart">2.请尝试退出软件，重新打开</string>
+</resources>

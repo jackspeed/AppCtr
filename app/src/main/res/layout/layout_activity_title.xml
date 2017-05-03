@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_48"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        style="@style/toolbarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorPrimary"
+        android:fitsSystemWindows="true"
+        android:minHeight="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/layout_back_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:background="@drawable/btn_title_bar_pressed"
+                android:padding="@dimen/dp_14">
+
+                <ImageView
+                    android:id="@+id/iv_back_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:minHeight="@dimen/dp_16"
+                    android:minWidth="@dimen/dp_16"
+                    android:src="@mipmap/fanhui" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_title_base"
+                android:maxLines="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_20"
+                tools:text="浙江献血" />
+
+            <LinearLayout
+                android:id="@+id/layout_right_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/btn_title_bar_pressed"
+                android:gravity="center_vertical"
+                android:clickable="true"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_14">
+
+                <TextView
+                    android:id="@+id/tv_right_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_4"
+                    android:maxLength="6"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    tools:text="保存" />
+
+                <ImageView
+                    android:id="@+id/iv_right_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/dp_16"
+                    android:minWidth="@dimen/dp_16"
+                    android:src="@mipmap/xiangyou"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+</LinearLayout>
