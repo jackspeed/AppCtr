@@ -1,4 +1,4 @@
-package com.ycj.adming;
+package com.ycj.adming.app;
 
 /**
  * Created by adming on 2017/4/13.

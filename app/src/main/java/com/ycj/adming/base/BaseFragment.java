@@ -1,4 +1,4 @@
-package com.ycj.adming;
+package com.ycj.adming.base;
 
 
 import android.os.Bundle;

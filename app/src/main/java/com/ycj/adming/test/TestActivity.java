@@ -1,4 +1,4 @@
-package com.ycj.adming;
+package com.ycj.adming.test;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -6,6 +6,8 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.ycj.adming.R;
+import com.ycj.adming.base.WithTitleBaseActivity;
 import com.ycj.ycjlibrary.base.adapter.BaseQuickAdapter;
 import com.ycj.ycjlibrary.base.adapter.BaseViewHolder;
 import com.ycj.ycjlibrary.refresh.PullToRefreshView;

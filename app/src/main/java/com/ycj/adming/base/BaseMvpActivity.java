@@ -2,8 +2,6 @@ package com.ycj.adming.base;
 
 import android.os.Bundle;
 
-import com.ycj.adming.BaseActivity;
-
 /**
  * Created by adming on 2017/5/3.
  */

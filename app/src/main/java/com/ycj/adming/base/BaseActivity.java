@@ -1,4 +1,4 @@
-package com.ycj.adming;
+package com.ycj.adming.base;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -16,6 +16,9 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+
+import com.ycj.adming.app.AppConst;
+import com.ycj.adming.R;
 
 public class BaseActivity extends AppCompatActivity {
 
