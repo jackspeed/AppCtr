@@ -6,4 +6,6 @@ package com.ycj.adming;
 
 public class AppConst {
     public static final int CODE_ACTIVITY_BACK = 100000;
+    public static final int CODE_ACTIVITY_REQUEST = 200000;
+    public static final int CODE_SUCCESS = 200;
 }
