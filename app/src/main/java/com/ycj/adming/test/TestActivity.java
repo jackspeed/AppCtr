@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.ycj.adming.R;
 import com.ycj.adming.base.WithTitleBaseActivity;
@@ -37,7 +38,6 @@ public class TestActivity extends WithTitleBaseActivity implements PullToRefresh
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setUIContentView(R.layout.activity_test);
         setTitleText("积分哈");
         setTopLeftCorner(false);
         ButterKnife.bind(this);
@@ -51,6 +51,13 @@ public class TestActivity extends WithTitleBaseActivity implements PullToRefresh
         contentLayout.setOnLoadMoreListener(this);
         contentLayout.setOnRefreshListener(this);
         new Handler().postDelayed(RUNNABLE, 1000);
+    }
+
+    @Override
+    protected View initUIContentView() {
+        View view = getLayoutInflater().inflate(R.layout.activity_test, null);
+        ButterKnife.bind(this);
+        return view;
     }
 
     private void loadData() {
