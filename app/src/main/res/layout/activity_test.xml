@@ -5,7 +5,7 @@
     xmlns:pull="http://schemas.android.com/apk/res-auto">
     <com.ycj.ycjlibrary.refresh.PullToRefreshView
         android:id="@+id/content_layout"
-        pull:mode="pull_down_to_refresh"
+        pull:mode="both"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <!--<flag name="pull_down_to_refresh" value="0x1" />-->

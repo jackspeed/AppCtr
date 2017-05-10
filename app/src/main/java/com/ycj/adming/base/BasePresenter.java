@@ -11,7 +11,8 @@ public abstract class BasePresenter<T> {
         this.mView = mView;
     }
 
-    public void dettach() {
+    public void detach() {
+        //防止内存泄露
         mView = null;
     }
 }

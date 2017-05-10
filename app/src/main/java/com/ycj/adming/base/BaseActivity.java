@@ -8,6 +8,8 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.ConnectivityManager;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
@@ -17,14 +19,16 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
-import com.ycj.adming.app.AppConst;
 import com.ycj.adming.R;
+import com.ycj.ycjlibrary.http.ActivityLifeCycleEvent;
+import com.ycj.ycjlibrary.utils.GlobalData;
+
+import rx.subjects.PublishSubject;
 
 public class BaseActivity extends AppCompatActivity {
-
+    public final PublishSubject<ActivityLifeCycleEvent> lifecycleSubject = PublishSubject.create();
     private int mOrientation;
     private AlertDialog loadingDialog;
-
     /**
      * startActivityForResult()方法的返回
      *
@@ -33,23 +37,31 @@ public class BaseActivity extends AppCompatActivity {
     public void setBackResult(boolean isRefresh) {
         Intent intent = new Intent();
         intent.putExtra("isRefresh", isRefresh);//是否刷新
-        setResult(AppConst.CODE_ACTIVITY_BACK, intent);
+        setResult(GlobalData.CODE_ACTIVITY_BACK, intent);
     }
 
     @Override
     protected void onPause() {
+        lifecycleSubject.onNext(ActivityLifeCycleEvent.PAUSE);
         super.onPause();
-        hideKeyBoard();
+    }
+
+    @Override
+    protected void onStop() {
+        lifecycleSubject.onNext(ActivityLifeCycleEvent.STOP);
+        super.onStop();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        lifecycleSubject.onNext(ActivityLifeCycleEvent.DESTROY);
     }
 
     /**
      * 隐蔽软键盘 Method: hideKeyBoard
      */
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     public void hideKeyBoard() {
         InputMethodManager imm = (InputMethodManager) getSystemService(
                 Context.INPUT_METHOD_SERVICE);

@@ -1,4 +1,4 @@
-package com.ycj.ycjlibrary.animation.utils;
+package com.ycj.ycjlibrary.utils;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;

@@ -5,9 +5,6 @@ package com.ycj.adming.base;
  */
 
 public interface BaseView {
-
-    void showLoading();
-
-    void hideLoading();
+    void onFailure(String msg);
 
 }
