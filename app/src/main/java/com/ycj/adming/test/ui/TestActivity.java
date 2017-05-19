@@ -15,7 +15,7 @@ import com.ycj.ycjlibrary.base.adapter.BaseQuickAdapter;
 import com.ycj.ycjlibrary.base.adapter.BaseViewHolder;
 import com.ycj.ycjlibrary.photoview.OnOutsidePhotoTapListener;
 import com.ycj.ycjlibrary.photoview.PhotoView;
-import com.ycj.ycjlibrary.refresh.PullToRefreshView;
+import com.ycj.ycjlibrary.refreshview.PullToRefreshView;
 import com.ycj.ycjlibrary.utils.DividerItemDecoration;
 
 import java.util.List;

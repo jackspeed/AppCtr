@@ -1,4 +1,4 @@
-package com.ycj.ycjlibrary.refresh;
+package com.ycj.ycjlibrary.refreshview;
 
 import android.content.Context;
 import android.view.LayoutInflater;
