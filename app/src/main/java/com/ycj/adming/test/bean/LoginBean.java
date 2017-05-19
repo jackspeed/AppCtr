@@ -1,4 +1,4 @@
-package com.ycj.adming.test;
+package com.ycj.adming.test.bean;
 
 /**
  * Created by adming on 2017/5/10.

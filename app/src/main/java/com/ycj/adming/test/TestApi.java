@@ -1,5 +1,8 @@
 package com.ycj.adming.test;
 
+import com.ycj.adming.test.bean.CityEntity;
+import com.ycj.adming.test.bean.HomeInfoEntity;
+import com.ycj.adming.test.bean.LoginBean;
 import com.ycj.ycjlibrary.http.BaseResponse;
 
 import java.util.List;
@@ -23,6 +26,6 @@ public interface TestApi {
     //    用户登录接口
     @GET("pub/appUser/login")
     Observable<BaseResponse<LoginBean>> login(@Query("mobile") String mobile,
-                                @Query("password") String password);
+                                              @Query("password") String password);
 
 }

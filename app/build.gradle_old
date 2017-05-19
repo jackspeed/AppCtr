@@ -3,9 +3,6 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
-    lintOptions {
-        abortOnError false
-    }
     defaultConfig {
         applicationId "com.ycj.adming"
         minSdkVersion 15
@@ -14,32 +11,23 @@ android {
         versionName "1.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-
-    signingConfigs {//gradlew assembleRelease
-        release {
-            storeFile file('E:\\AppCtr\\ycj_keystore.jks')
-            storePassword 'ycj123456'
-            keyAlias 'key0'
-            keyPassword 'ycj123456'
-        }
-    }
-
     buildTypes {
         //开发环境
         debug {
             minifyEnabled false
+            //实现自动签名
+            signingConfig getSignInfo();
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         //生产环境
         release {
+            signingConfig getSignInfo();
             // 混淆
             minifyEnabled true
             // Zipalign优化
             zipAlignEnabled true
             // 移除无用的resource文件
             shrinkResources true
-
-            signingConfig signingConfigs.release
             //前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明，
             // 后一个文件是自己的定义混淆文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -49,12 +37,7 @@ android {
                     def outputFile = output.outputFile
                     if (outputFile != null && outputFile.name.endsWith('.apk')) {
                         // 输出apk名称为appname-1.0-beta1-xxxx-xx-xx.apk
-                        def fileName;
-                        if (variant.buildType.name == 'release') {
-                            fileName = "v${defaultConfig.versionName}-release-${releaseTime()}.apk"
-                        } else if (variant.buildType.name == 'debug') {
-                            fileName = "v${defaultConfig.versionName}-debug-${releaseTime()}.apk"
-                        }
+                        def fileName = "app-${defaultConfig.versionName}-beta1-${releaseTime()}.apk"
                         output.outputFile = new File(outputFile.parent, fileName)
                     }
                 }
@@ -63,10 +46,27 @@ android {
     }
 }
 
-static def releaseTime() {//TimeZone.getTimeZone("UTC")
-    return new Date().format("yyyy.MM.dd.HH.mm.ss")
+static def releaseTime() {
+    return new Date().format("yyyy.MM.dd", TimeZone.getTimeZone("UTC"))
 }
 
+def getSignInfo() {
+    def com.android.build.gradle.internal.dsl.SigningConfig signingConfig = new com.android.build.gradle.internal.dsl.SigningConfig("release")
+    File propFile = file(getProjectDir().getParent() + "/sign.properties");
+    if (propFile.exists()) {
+        def Properties props = new Properties()
+        props.load(new FileInputStream(propFile))
+        signingConfig.storeFile = file(props['STORE_FILE'])
+        signingConfig.storePassword = props['STORE_PASSWORD']
+        signingConfig.keyAlias = props['KEY_ALIAS']
+        signingConfig.keyPassword = props['KEY_PASSWORD']
+        println('signConfig is exits')
+    } else {
+        println('sign config is null')
+        signingConfig = null
+    }
+    return signingConfig;
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])

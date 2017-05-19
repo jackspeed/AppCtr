@@ -4,11 +4,15 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.ycj.adming.R;
 import com.ycj.adming.base.WithTitleBaseActivity;
+import com.ycj.adming.test.bean.CityEntity;
 import com.ycj.ycjlibrary.base.adapter.BaseQuickAdapter;
 import com.ycj.ycjlibrary.base.adapter.BaseViewHolder;
+import com.ycj.ycjlibrary.photoview.OnOutsidePhotoTapListener;
+import com.ycj.ycjlibrary.photoview.PhotoView;
 import com.ycj.ycjlibrary.refresh.PullToRefreshView;
 import com.ycj.ycjlibrary.utils.DividerItemDecoration;
 
@@ -16,7 +20,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class TestActivity extends WithTitleBaseActivity implements TestModelView<List<CityEntity>>, PullToRefreshView.OnLoadMoreListener, PullToRefreshView.OnRefreshListener {
+public class TestActivity extends WithTitleBaseActivity implements TestModelView<List<CityEntity>>, PullToRefreshView.OnLoadMoreListener, PullToRefreshView.OnRefreshListener, OnOutsidePhotoTapListener {
     @BindView(R.id.recycle)
     RecyclerView reList;
     @BindView(R.id.content_layout)
@@ -41,6 +45,8 @@ public class TestActivity extends WithTitleBaseActivity implements TestModelView
         reList.setAdapter(mAdapter);
         contentLayout.setOnLoadMoreListener(this);
         contentLayout.setOnRefreshListener(this);
+        PhotoView p = new PhotoView(this);
+        p.setOnOutsidePhotoTapListener(this);
     }
 
     @Override
@@ -102,6 +108,11 @@ public class TestActivity extends WithTitleBaseActivity implements TestModelView
     @Override
     public void onRefresh() {
         initData();
+    }
+
+    @Override
+    public void onOutsidePhotoTap(ImageView imageView) {
+        finish();
     }
 
     private class MyAdapter extends BaseQuickAdapter<CityEntity> {

@@ -6,8 +6,8 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.util.Log;
 
-import com.blankj.utilcode.utils.AppUtils;
-import com.blankj.utilcode.utils.StringUtils;
+import com.blankj.utilcode.util.AppUtils;
+import com.blankj.utilcode.util.StringUtils;
 import com.ycj.ycjlibrary.cache.ACache;
 import com.ycj.ycjlibrary.utils.GlobalData;
 

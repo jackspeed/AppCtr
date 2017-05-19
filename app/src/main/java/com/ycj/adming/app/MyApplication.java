@@ -1,7 +1,6 @@
 package com.ycj.adming.app;
 
-import android.app.Application;
-
+import com.ycj.ycjlibrary.SimpleApplication;
 import com.ycj.ycjlibrary.http.HttpRequestUtil;
 import com.ycj.ycjlibrary.utils.AppInfo;
 
@@ -9,7 +8,7 @@ import com.ycj.ycjlibrary.utils.AppInfo;
  * Created by adming on 2017/5/3.
  */
 
-public class MyApplication extends Application {
+public class MyApplication extends SimpleApplication {
     @Override
     public void onCreate() {
         super.onCreate();

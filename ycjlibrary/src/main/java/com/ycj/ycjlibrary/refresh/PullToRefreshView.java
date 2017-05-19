@@ -543,8 +543,19 @@ public class PullToRefreshView extends RelativeLayout {
                 scrollTo(headerHeight + newHeight);
             } else {
                 scrollTo(0);
-                if (((ScrollView) getChildAt(index)).getChildAt(0).getHeight() > getChildAt(index).getHeight()) {
-                    getChildAt(index).scrollTo(0, newHeight + headerHeight + ((ScrollView) getChildAt(index)).getChildAt(0).getHeight() - getChildAt(index).getHeight());
+                View tmp = getChildAt(index);
+                if (tmp instanceof RecyclerView) {
+                    if (((RecyclerView) tmp).getChildAt(0).getHeight() > tmp.getHeight()) {
+                        tmp.scrollTo(0, newHeight + headerHeight + ((RecyclerView) tmp).getChildAt(0).getHeight() - tmp.getHeight());
+                    }
+                } else if (tmp instanceof ScrollView) {
+                    if (((ScrollView) tmp).getChildAt(0).getHeight() > tmp.getHeight()) {
+                        tmp.scrollTo(0, newHeight + headerHeight + ((ScrollView) tmp).getChildAt(0).getHeight() - tmp.getHeight());
+                    }
+                }else if (tmp instanceof ListView) {
+                    if (((ListView) tmp).getChildAt(0).getHeight() > tmp.getHeight()) {
+                        tmp.scrollTo(0, newHeight + headerHeight + ((ListView) tmp).getChildAt(0).getHeight() - tmp.getHeight());
+                    }
                 }
             }
         } else {

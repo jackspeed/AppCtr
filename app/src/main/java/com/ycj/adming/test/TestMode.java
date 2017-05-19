@@ -1,6 +1,9 @@
 package com.ycj.adming.test;
 
 import com.ycj.adming.base.BaseActivity;
+import com.ycj.adming.test.bean.CityEntity;
+import com.ycj.adming.test.bean.HomeInfoEntity;
+import com.ycj.adming.test.bean.LoginBean;
 import com.ycj.ycjlibrary.http.ActivityLifeCycleEvent;
 import com.ycj.ycjlibrary.http.BaseResponse;
 import com.ycj.ycjlibrary.http.HttpRequestUtil;
