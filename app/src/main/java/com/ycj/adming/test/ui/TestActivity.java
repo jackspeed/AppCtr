@@ -1,4 +1,4 @@
-package com.ycj.adming.test;
+package com.ycj.adming.test.ui;
 
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import com.ycj.adming.R;
 import com.ycj.adming.base.WithTitleBaseActivity;
 import com.ycj.adming.test.bean.CityEntity;
+import com.ycj.adming.test.presenter.TestPresenter;
+import com.ycj.adming.test.view.TestModelView;
 import com.ycj.ycjlibrary.base.adapter.BaseQuickAdapter;
 import com.ycj.ycjlibrary.base.adapter.BaseViewHolder;
 import com.ycj.ycjlibrary.photoview.OnOutsidePhotoTapListener;

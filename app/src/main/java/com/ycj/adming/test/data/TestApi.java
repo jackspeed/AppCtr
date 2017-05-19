@@ -1,4 +1,4 @@
-package com.ycj.adming.test;
+package com.ycj.adming.test.data;
 
 import com.ycj.adming.test.bean.CityEntity;
 import com.ycj.adming.test.bean.HomeInfoEntity;

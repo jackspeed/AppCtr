@@ -1,4 +1,4 @@
-package com.ycj.adming.test;
+package com.ycj.adming.test.view;
 
 import com.ycj.adming.base.BaseView;
 

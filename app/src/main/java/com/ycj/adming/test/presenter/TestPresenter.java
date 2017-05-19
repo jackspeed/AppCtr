@@ -1,9 +1,11 @@
-package com.ycj.adming.test;
+package com.ycj.adming.test.presenter;
 
 import com.ycj.adming.base.BaseActivity;
 import com.ycj.adming.base.BasePresenter;
 import com.ycj.adming.base.BaseView;
+import com.ycj.adming.test.model.TestMode;
 import com.ycj.adming.test.bean.CityEntity;
+import com.ycj.adming.test.view.TestModelView;
 import com.ycj.ycjlibrary.http.OnResponseListener;
 
 import java.util.List;

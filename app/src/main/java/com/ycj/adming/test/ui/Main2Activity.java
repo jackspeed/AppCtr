@@ -1,4 +1,4 @@
-package com.ycj.adming.test;
+package com.ycj.adming.test.ui;
 
 import android.view.View;
 import android.widget.TextView;

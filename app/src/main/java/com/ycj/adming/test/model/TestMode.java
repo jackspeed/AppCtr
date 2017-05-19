@@ -1,6 +1,7 @@
-package com.ycj.adming.test;
+package com.ycj.adming.test.model;
 
 import com.ycj.adming.base.BaseActivity;
+import com.ycj.adming.test.data.TestApi;
 import com.ycj.adming.test.bean.CityEntity;
 import com.ycj.adming.test.bean.HomeInfoEntity;
 import com.ycj.adming.test.bean.LoginBean;
