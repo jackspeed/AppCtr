@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 
 import okhttp3.Cookie;
@@ -51,6 +52,7 @@ public class PersistentCookieStore {
             }
         }
     }
+
     /**
      * 获取cookieToken
      *
@@ -80,12 +82,15 @@ public class PersistentCookieStore {
                 cookies.get(url.host()).remove(name);
             }
         }
-        //将cookies持久化到本地
-        SharedPreferences.Editor prefsWriter = cookiePrefs.edit();
-        prefsWriter.putString(url.host(), TextUtils.join(",", cookies.get(url.host()).keySet()));
-        prefsWriter.putString(name, encodeCookie(new SerializableOkHttpCookies(cookie)));
-        prefsWriter.apply();
-
+        try {
+            //将cookies持久化到本地
+            SharedPreferences.Editor prefsWriter = cookiePrefs.edit();
+            prefsWriter.putString(url.host(), TextUtils.join(",", cookies.get(url.host()) == null ? new TreeSet<>() : cookies.get(url.host()).keySet()));
+            prefsWriter.putString(name, encodeCookie(new SerializableOkHttpCookies(cookie)));
+            prefsWriter.apply();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
