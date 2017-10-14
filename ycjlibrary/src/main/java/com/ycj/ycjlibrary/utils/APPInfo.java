@@ -8,7 +8,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 
-public class AppInfo {
+public class APPInfo {
 
     private static Context mContext;
     public static long uiTid;
@@ -26,7 +26,7 @@ public class AppInfo {
      */
 //	private String channelId;
     public static void init(Context context) {
-        AppInfo.setContext(context);
+        APPInfo.setContext(context);
 
         uiTid = Thread.currentThread().getId();
 
@@ -50,7 +50,7 @@ public class AppInfo {
     }
 
     public static void setContext(Context context) {
-        AppInfo.mContext = context;
+        APPInfo.mContext = context;
     }
 
     public static long getUiTid() {
@@ -81,7 +81,7 @@ public class AppInfo {
      * @param client the clientType to set
      */
     public static void setClientType(String client) {
-        AppInfo.clientType = client;
+        APPInfo.clientType = client;
     }
 
 

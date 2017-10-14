@@ -7,7 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.ycj.ycjlibrary.http.ProgressCancelListener;
-import com.ycj.ycjlibrary.utils.AppInfo;
+import com.ycj.ycjlibrary.utils.APPInfo;
 
 import java.lang.ref.WeakReference;
 
@@ -30,7 +30,7 @@ public class SimpleLoadDialog extends Handler {
     public SimpleLoadDialog(ProgressCancelListener mProgressCancelListener,
                             boolean cancelable) {
         super();
-        context = AppInfo.getContext();
+        context = APPInfo.getContext();
         this.reference = new WeakReference<Context>(context);
         this.mProgressCancelListener = mProgressCancelListener;
         this.cancelable = cancelable;
